@@ -27,13 +27,14 @@ read -p "Please enter the default intenal Display Port number(normally edp is on
 rm device-properties.xml 
 
 echo '<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">
-<dict>
-<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
-<dict>' >> device-properties.xml
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+	<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
+	<dict>' >> device-properties.xml
 
 read -p "Please enter the VRAM in decimal:" vram
-printf -v vram '0x0%08x\n' $vram 
+printf -v vram '0x0%08x' $vram 
 
 # read -p "Please enter the vbios revision:" vbios
 
@@ -53,9 +54,7 @@ do
 		<key>@$i,compatible</key>
 		<string>NVDA,NVMac</string>
 		<key>@$i,connector-type</key>
-		<data>
-		AAgAAA==
-		</data>
+		<data>AAgAAA==</data>
 		<key>@$i,device_type</key>
 		<string>display</string>
 		<key>@$i,name</key>
@@ -74,9 +73,7 @@ do
 		<key>@$i,compatible</key>
 		<string>NVDA,NVMac</string>
 		<key>@$i,connector-type</key>
-		<data>
-		AAgAAA==
-		</data>
+		<data>AAgAAA==</data>
 		<key>@$i,device_type</key>
 		<string>display</string>
 		<key>@$i,name</key>
@@ -84,17 +81,11 @@ do
 	fi
 done
 echo "  <key>AAPL,HasLid</key>
-		<data>
-		AQAAAA==
-		</data>
+		<data>AQAAAA==</data>
 		<key>AAPL,HasPanel</key>
-		<data>
-		AQAAAA==
-		</data>
+		<data>AQAAAA==</data>
 		<key>AAPL,backlight-control</key>
-		<data>
-		AQAAAA==
-		</data>
+		<data>AQAAAA==</data>
 		<key>VRAM,totalsize</key>
 		<string>$vram</string>
 		<key>device_type</key>
@@ -109,5 +100,6 @@ echo "  <key>AAPL,HasLid</key>
 eval "cat orginal.xml  >> device-properties.xml"
 ./gfxutil -i xml -o hex "device-properties.xml" "device-properties.hex"
 cat device-properties.hex
-echo "\nDone!
-before to use efi string,be sure to check no redundant propeities/items in file 'device-properties.xml'!"
+echo
+echo "before to use efi string,be sure to check no redundant propeities/items in file 'device-properties.xml'!"
+
