@@ -4,6 +4,7 @@
 # 	chmod +x Nvidia-900mSeries-Hackintosh.sh
 # 	./Nvidia-900mSeries-Hackintosh.sh
 # Maintained by: XinyuWufei for primarily Clevo laptop's display （nvidia 900m series graphic card）
+# https://github.com/meimeidyyd/Nvidia-900mSeries-Hackintosh.git
 
 portname=("A" "B" "C" "D" "E" "F" "G" "H")
 portnumber=6
@@ -25,8 +26,11 @@ read -p "Please enter the default intenal Display Port number(normally edp is on
 
 rm device-properties.xml 
 
-echo '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">
-<dict>\n<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>\n<dict>' >> device-properties.xml
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">
+<dict>
+<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
+<dict>' >> device-properties.xml
 
 read -p "Please enter the VRAM in decimal:" vram
 printf -v vram '0x0%08x\n' $vram 
@@ -79,7 +83,7 @@ do
 		<string>NVDA,Display-${portname[$i]}</string>" >> device-properties.xml
 	fi
 done
-echo '  <key>AAPL,HasLid</key>
+echo "  <key>AAPL,HasLid</key>
 		<data>
 		AQAAAA==
 		</data>
@@ -97,7 +101,7 @@ echo '  <key>AAPL,HasLid</key>
 		<string>NVDA,Parent</string>
 		<key>hda-gfx</key>
 		<string>onboard-1</string>
-		</dict>' >> device-properties.xml
+		</dict>" >> device-properties.xml
 
 # <key>rom-revision</key>
 # <string>VBIOS $vbios</string>
