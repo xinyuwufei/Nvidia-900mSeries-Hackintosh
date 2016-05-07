@@ -9,7 +9,7 @@
 portname=("A" "B" "C" "D" "E" "F" "G" "H")
 portnumber=6
 # internalDisplay=3
-echo "Please remove any (third-party's)efi string in config ; clean the cache and reboot beofre the first time to use!!!\n"
+echo "Please remove any (third-party's)efi string in config ; clean the cache and reboot before using it for the first time!!!\n"
 echo "generating orginal device-properties.xml/hex..."
 eval "ioreg -lw0 -p IODeviceTree -n efi -r -x | grep device-properties | sed 's/.*<//;s/>.*//;' > orginal.hex && ./gfxutil -s -n -i hex -o xml orginal.hex orginal.xml"
 if [ -f "orginal.xml.bak" ]
