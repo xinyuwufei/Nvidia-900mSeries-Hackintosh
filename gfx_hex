@@ -1,9 +1,0 @@
-#!/bin/bash
-
-cd "`dirname "$0"`"
-./gfxutil -i xml -o hex "device-properties.xml" "device-properties.hex"
-cat <<EOF
----
-`cat device-properties.hex`
----
-EOF
