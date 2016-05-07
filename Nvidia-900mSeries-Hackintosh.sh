@@ -36,7 +36,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 read -p "Please enter the VRAM in decimal:" vram
 printf -v vram '0x0%08x' $vram 
 
-# read -p "Please enter the vbios revision:" vbios
+read -p "Please enter the vbios revision(eg.:84.04.3e.00.01):" vbios
 
 
 for ((i = 0; i<$portnumber; i++))
@@ -44,13 +44,13 @@ do
 	if [ $i = $internalDisplay ]
 	then
     	echo "<key>@$i,AAPL,boot-display</key>
-		<string>01000000 </string>
+		<string></string>
 		<key>@$i,NVDA,UnderscanMin</key>
 		<string>0x00000052</string>
 		<key>@$i,backlight-control</key>
-		<string>01000000 </string>
+		<string></string>
 		<key>@$i,built-in</key>
-		<string>01000000 </string>
+		<string></string>
 		<key>@$i,compatible</key>
 		<string>NVDA,NVMac</string>
 		<key>@$i,connector-type</key>
@@ -64,9 +64,12 @@ do
 		ARQAZKhhAAAeAgAALAAAAAAEAAA=
 		</data>
 		<key>@$i,use-backlight-blanking</key>
-		<data>
-		AQAAAA==
-		</data>" >> device-properties.xml
+		<string></string>" >> device-properties.xml
+
+		# <key>@0,pwm-info</key>
+		# <data>
+		# AhgAZFYnBQAAAAAAAAAAAAAEAAABAAAA
+		# </data>
 	else
     	echo "<key>@$i,NVDA,UnderscanMin</key>
 		<string>0x00000052</string>
@@ -80,26 +83,21 @@ do
 		<string>NVDA,Display-${portname[$i]}</string>" >> device-properties.xml
 	fi
 done
-echo "  <key>AAPL,HasLid</key>
-		<data>AQAAAA==</data>
-		<key>AAPL,HasPanel</key>
-		<data>AQAAAA==</data>
-		<key>AAPL,backlight-control</key>
-		<data>AQAAAA==</data>
-		<key>VRAM,totalsize</key>
+echo "  <key>VRAM,totalsize</key>
 		<string>$vram</string>
 		<key>device_type</key>
 		<string>NVDA,Parent</string>
 		<key>hda-gfx</key>
 		<string>onboard-1</string>
+		<key>rom-revision</key>
+		<string>VBIOS $vbios</string>
 		</dict>" >> device-properties.xml
+# <key>model</key>
+# <string>NVIDIA GeForce GTX 980M</string>
 
-# <key>rom-revision</key>
-# <string>VBIOS $vbios</string>
 
 eval "cat orginal.xml  >> device-properties.xml"
 ./gfxutil -i xml -o hex "device-properties.xml" "device-properties.hex"
 cat device-properties.hex
 echo
 echo "before to use efi string,be sure to check no redundant propeities/items in file 'device-properties.xml'!"
-
