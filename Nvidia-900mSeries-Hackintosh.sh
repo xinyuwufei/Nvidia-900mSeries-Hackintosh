@@ -30,7 +30,7 @@ internalDisplay=$(echo $portString | grep -o @[0-9] | grep -o [0-9])
 
 if ! [[ ${#internalDisplay} == 1 ]]
 then
-   	echo "You (probably)currently have more than one port(display) is connected"
+   	echo "You (probably)currently have more than one port(display) is connected or you have not installed the web driver yet"
    	echo "Please verify your intenal Display Port number showed as below:"
    	echo $internalDisplay
    	echo $portString
@@ -44,12 +44,14 @@ then
 	rm device-properties.xml 
 fi
 
-echo '<?xml version="1.0" encoding="UTF-8"?>
+echo "<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 	<dict>
 	<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
-	<dict>' >> device-properties.xml
+	<dict>
+	<key>@$internalDisplay,AAPL,boot-display</key>
+		<string>0x01000000</string>" >> device-properties.xml
 
 read -p "Please enter the VRAM in decimal(MB):" vram
 printf -v vram '0x0%08x' $vram 
@@ -61,9 +63,7 @@ for ((i = 0; i<$portnumber; i++))
 do
 	if [ $i = $internalDisplay ]
 	then
-    	echo "<key>@$i,AAPL,boot-display</key>
-		<string></string>
-		<key>@$i,NVDA,UnderscanMin</key>
+    	echo "<key>@$i,NVDA,UnderscanMin</key>
 		<string>0x00000052</string>
 		<key>@$i,backlight-control</key>
 		<string></string>
