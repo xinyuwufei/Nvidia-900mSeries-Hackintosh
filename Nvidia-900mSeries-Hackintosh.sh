@@ -27,7 +27,8 @@ sed -i '' '/<key>PciRoot(0x0)\/Pci(0x1,0x0)\/Pci(0x0,0x0)/,/<\/dict>/d' orginal.
 echo "trying to find the internalDisplay port number ..."
 portString=$(ioreg -lw0 | grep IODisplayPrefsKey | sed 's|.*NVDA,\(.*\)|\1|')
 internalDisplay=$(echo $portString | grep -o @[0-9] | grep -o [0-9])
-if ! [[ $internalPort =~ '^[0-9]+$' ]]
+
+if ! [[ ${#internalDisplay} == 1 ]]
 then
    	echo "You (probably)currently have more than one port(display) is connected"
    	echo "Please verify your intenal Display Port number showed as below:"
