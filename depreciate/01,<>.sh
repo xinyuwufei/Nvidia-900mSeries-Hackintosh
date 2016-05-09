@@ -66,9 +66,9 @@ do
     	echo "<key>@$i,NVDA,UnderscanMin</key>
 		<string>0x00000052</string>
 		<key>@$i,backlight-control</key>
-		<string>0x01000000</string>
+		<string></string>
 		<key>@$i,built-in</key>
-		<string>0x01000000</string>
+		<string></string>
 		<key>@$i,compatible</key>
 		<string>NVDA,NVMac</string>
 		<key>@$i,connector-type</key>
@@ -82,7 +82,7 @@ do
 		ARQAZKhhAAAeAgAALAAAAAAEAAA=
 		</data>
 		<key>@$i,use-backlight-blanking</key>
-		<string>0x01000000</string>" >> device-properties.xml
+		<string></string>" >> device-properties.xml
 
 		# <key>@0,pwm-info</key>
 		# <data>
