@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
+	<dict>
+		<key>@0,AAPL,boot-display</key>
+		<string>0x00000001</string>
+		<key>@0,backlight-control</key>
+		<string>0x00000001</string>
+		<key>@0,built-in</key>
+		<string>0x01</string>
+		<key>@0,compatible</key>
+		<string>NVDA,NVMac</string>
+		<key>@0,device_type</key>
+		<string>display</string>
+		<key>@0,display-cfg</key>
+		<string>0x00030103</string>
+		<key>@0,name</key>
+		<string>NVDA,Display-A</string>
+		<key>@0,pwm-info</key>
+		<data>
+		ARQAZKhhAAAeAgAALAAAAAAEAAA=
+		</data>
+		<key>@0,use-backlight-blanking</key>
+		<string>0x01</string>
+		<key>@1,compatible</key>
+		<string>NVDA,NVMac</string>
+		<key>@1,connector-type</key>
+		<string>0x00000800</string>
+		<key>@1,device_type</key>
+		<string>display</string>
+		<key>@1,display-cfg</key>
+		<string>0x0100ffff</string>
+		<key>@1,name</key>
+		<string>NVDA,Display-B</string>
+		<key>AAPL00,override-no-connect</key>
+		<data>
+		AP///////wANryAXAAAAAAIVAQSQJhV4Au2Vo1RMnCYPUFQAAAABAQEBAQEB
+		AQEBAQEBAQEB4TaArnA4JkA0IzYAftcQAAAaHSSAoHA4H0AwIDUAftcQAAAa
+		AAAA/gBIQzlHS4AxNzNIR0UKAAAAAAAAQTGeAAAAAAIBCiAgAPM=
+		</data>
+		<key>NVCAP</key>
+		<data>
+		BAAAAAAABwAAAAAAAAAABwAAAAA=
+		</data>
+		<key>NVPM</key>
+		<data>
+		AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+		</data>
+		<key>VRAM,totalMB</key>
+		<string>0x00001000</string>
+		<key>device_type</key>
+		<string>NVDA,Parent</string>
+		<key>hda-gfx</key>
+		<data>
+		b25ib2FyZC0xAA==
+		</data>
+		<key>model</key>
+		<string>Clevo GeForce GTX 780M</string>
+		<key>rom-revision</key>
+		<string>1.0</string>
+	</dict>
+</dict>
+</plist>
