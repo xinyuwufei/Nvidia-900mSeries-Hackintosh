@@ -26,6 +26,15 @@ Fix no signal for Nvidia 900m series Internal display and add brightness Control
    如何找到 Vbios revision<br />
   	在你电脑的BIOS信息里<br />
 
+# Credits
+ Pike R. Alpha
+ cecekpawon
+ Mirone
+ Riley Freeman
+ arsradu
+ RehabMan
+
+
   关于亮度调节<br />
   	你需要给你电脑的dsdt打补丁:<br />
   	1)打‘Brightness slider’补丁或者在clover的上打PNLF补丁(没测试)<br />
