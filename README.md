@@ -14,6 +14,13 @@ Fix no signal for Nvidia 900m series Internal display and add brightness Control
   you need to patch your DSDT:
   	1）Brightness slider patch or PNLF acpi patch (not tested yet) on Clover
   	2）Brightness key patch to make the “sun” icon work
+# Credits
+	Pike R. Alpha
+	cecekpawon
+ 	Mirone
+ 	Riley Freeman
+ 	arsradu
+ 	RehabMan
 
   <h2>中文说明</h2><br />
 
@@ -25,15 +32,6 @@ Fix no signal for Nvidia 900m series Internal display and add brightness Control
 		sh ./Nvidia-900mSeries-Hackintosh.sh<br />
    如何找到 Vbios revision<br />
   	在你电脑的BIOS信息里<br />
-
-# Credits
- Pike R. Alpha
- cecekpawon
- Mirone
- Riley Freeman
- arsradu
- RehabMan
-
 
   关于亮度调节<br />
   	你需要给你电脑的dsdt打补丁:<br />
