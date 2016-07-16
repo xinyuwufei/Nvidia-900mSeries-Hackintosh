@@ -44,6 +44,13 @@ then
 	rm device-properties.xml 
 fi
 
+ #	<key>AAPL,HasPanel</key>
+ #       <string>0x01000000</string>
+ #       <key>AAPL,HasLid</key>
+ #       <string>0x01000000</string>
+ #       <key>AAPL,backlight-control</key>
+ #       <string>0x01000000</string>
+ 
 echo "<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
